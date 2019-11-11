@@ -1,0 +1,20 @@
+tensroflow 新版本相较于一些老版本更改了一些函数和变量类型。可以到 \lib\fast_rcnn\train.py 内尝试把 build_image_summary(self) 函数整体替换为以下语句:
+ef build_image_summary(self):
+
+    # A simple graph for write image summary
+
+    log_image_data = tf.placeholder(tf.uint8, [None, None, 3])
+
+    log_image_name = tf.placeholder(tf.string)
+
+    from tensorflow.python.ops import gen_logging_ops
+
+    from tensorflow.python.framework import ops as _ops
+
+    log_image = tf.summary.image(str(log_image_name),
+
+        tf.expand_dims(log_image_data, 0), max_outputs=1)
+
+    _ops.add_to_collection(_ops.GraphKeys.SUMMARIES, log_image)
+
+    return log_image, log_image_data, log_image_name
