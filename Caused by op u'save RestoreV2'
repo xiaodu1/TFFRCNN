@@ -1,0 +1,13 @@
+    #test_net finally line
+    # start a session
+    saver = tf.train.Saver()
+    # sess = tf.Session(config=tf.ConfigProto(allow_soft_placement=True))
+    # saver.restore(sess, args.model)
+    module_file = tf.train.latest_checkpoint('#checkpoint file path#')
+    with tf.Session() as sess:
+        sess.run(tf.global_variables_initializer())
+        if module_file is not None:
+            saver.restore(sess, module_file)
+        print ('Loading model weights from {:s}').format(args.model)
+
+        test_net(sess, network, imdb, weights_filename)
