@@ -1,5 +1,5 @@
 tensroflow 新版本相较于一些老版本更改了一些函数和变量类型。可以到 \lib\fast_rcnn\train.py 内尝试把 build_image_summary(self) 函数整体替换为以下语句:
-ef build_image_summary(self):
+def build_image_summary(self):
 
     # A simple graph for write image summary
 
