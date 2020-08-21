@@ -1,0 +1,7 @@
+1,修改/lib/dateset/pascal_voc
+classes = '__background__', # always index 0
+                         'bee','cricket','mosquito','moth','scarab'
+2,experiments/cfgs/faster_rcnn_end2end.yml
+NCLASSES=6
+3,lib/faster_rcnn/congfig.py
+__C.NCLASSES = 6
