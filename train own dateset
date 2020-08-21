@@ -7,3 +7,13 @@ NCLASSES=6
 __C.NCLASSES = 6
 4,OOM
 config.gpu_options.per_process_gpu_memory_fraction = 0.7
+5,在训练完成后将demo.py中的model改为如下
+https://blog.csdn.net/qq_32790593/article/details/85642462
+6,训练完成后修改demo.py文件
+CLASSES = ('__background__','head','top', 'down','shoes','hat','bag')
+
+修改模型路径:
+
+parser.add_argument('--model',dest='model',help='Model path',
+
+                    default='/home/china409/Myprogram/PythonProgram/yx/TFFRCNN-master/output/walker/my_2017_human')
