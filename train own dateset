@@ -5,3 +5,5 @@ classes = '__background__', # always index 0
 NCLASSES=6
 3,lib/faster_rcnn/congfig.py
 __C.NCLASSES = 6
+4,OOM
+config.gpu_options.per_process_gpu_memory_fraction = 0.7
